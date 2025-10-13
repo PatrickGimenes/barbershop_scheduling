@@ -32,7 +32,7 @@
 
       <button
         @click="confirmBooking"
-        class="bg-gold text-white text-2xl font-bold rounded-sm h-14 w-full"
+        class="bg-gold text-2xl font-bold rounded-sm h-14 w-full"
       >
         Agendar
       </button>
