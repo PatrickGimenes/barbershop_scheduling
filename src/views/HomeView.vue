@@ -1,27 +1,29 @@
 <template>
-  <div class="w-80 mx-auto">
-    <h1 class="font-bold my-4 text-4xl">
-      Seu corte, no melhor horário pra você.
-    </h1>
-    <p class="text-xl mb-8">
-      Agende online em poucos segundos — rápido, fácil e sem espera.
-    </p>
+  <div class="w-[80vw] mx-auto">
+    <HomeInfo
+      title="Seu corte, no melhor horário pra você."
+      subtitle="Agende online em poucos segundos — rápido, fácil e sem espera."
+    />
+
     <div class="flex flex-col items-center">
       <button
-        class="bg-gold font-bold rounded-sm h-14 w-56"
-        @click="goScheduling"
+        class="bg-gold text-2xl font-bold rounded-sm h-14 w-56"
+        @click="iniciarAgendamento"
       >
         Agendar agora
       </button>
 
       <div class="flex items-center w-full max-w-[100px]">
         <div class="flex-grow border-t border-gold"></div>
-        <span class="px-2 my-1 font-bold">OU</span>
+        <span class="px-2 my-8 font-bold">OU</span>
         <div class="flex-grow border-t border-gold"></div>
       </div>
 
       <!-- <p class="my-4 font-bold"> OU</p> -->
-      <button class="bg-red text-white font-bold rounded-sm h-14 w-50">
+      <button
+        class="bg-red text-white text-2xl font-bold rounded-sm h-14 w-80 lg:mb-10"
+        @click="verAgendamentos"
+      >
         Ver meus agendamentos
       </button>
     </div>
@@ -31,10 +33,15 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import HomeInfo from "../components/HomeInfo.vue";
 
 const router = useRouter();
 
-function goScheduling() {
-  router.push("/agendamento");
+function iniciarAgendamento() {
+  router.push("/cliente");
+}
+
+function verAgendamentos() {
+  router.push("/meus-agendamentos");
 }
 </script>
