@@ -1,6 +1,6 @@
 <template>
     <nav class="flex justify-between items-center h-20 pr-4 bg-black">
-        <img @click="backToHome" class="h-full  bg-gold cursor-pointer" src="../assets/scissors.svg" alt="Logo do site">
+        <img @click="backToHome" class="h-full  bg-gold cursor-pointer" src="../assets/scissors.svg" alt="Ícone de uma tesoura amarela">
         <p class="text-gold">Barbearia Jr Barrado</p>
     </nav>
 </template>

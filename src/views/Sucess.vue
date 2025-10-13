@@ -33,7 +33,7 @@ function nextStep() {
       <img
         class="text-emerald-700 md:w-48"
         src="../assets/check.svg"
-        alt="Ícone de confirmação"
+        alt="Círculo verde com um ícone de check branco no centro"
       />
 
       <p class="text-md">
