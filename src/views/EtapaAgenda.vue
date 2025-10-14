@@ -52,6 +52,7 @@
       </div>
 
       <!-- Próxima etapa -->
+
       <button
         @click="nextStep"
         :disabled="!selectedDate || !selectedTime"

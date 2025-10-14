@@ -6,12 +6,10 @@
     />
 
     <div class="flex flex-col items-center">
-      <button
-        class="bg-gold text-2xl font-bold rounded-sm h-14 w-56"
-        @click="iniciarAgendamento"
-      >
-        Agendar agora
-      </button>
+      <PrimaryButton 
+        name="Agendar"
+        :method="iniciarAgendamento"
+      />
 
       <div class="flex items-center w-full max-w-[100px]">
         <div class="flex-grow border-t border-gold"></div>
@@ -34,6 +32,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import HomeInfo from "../components/HomeInfo.vue";
+import PrimaryButton from "../components/PrimaryButton.vue";
 
 const router = useRouter();
 

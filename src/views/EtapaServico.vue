@@ -1,6 +1,7 @@
 <template>
   <div class="w-[80vw] mx-auto">
     <HomeInfo title="O que vai ser hoje?" subtitle="Escolha um ou mais serviços abaixo." />
+
     <form class="max-w-md mx-auto p-4 space-y-6">
       <p class="font-semibold text-xl text-center py-4">
         Etapa <span class="font-bold">2</span> de <span class="font-bold">4</span>
@@ -35,7 +36,7 @@
         @click="nextStep"
         type="button"
         value="Próxima etapa"
-        class="bg-gold text-2xl my-8 font-bold rounded-sm h-14 w-full"
+        class="bg-gold text-2xl my-8 font-bold rounded-sm h-14 w-full lg:my-1"
       />
     </form>
   </div>

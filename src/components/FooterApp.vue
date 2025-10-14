@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-black md: mt-10">
+  <footer class="bg-black md:mt-10">
     <p class="text-gold text-center">
       Barbearia Jr Barrado — <span class="font-bold">estilo</span> e
       <span class="font-bold">praticidade</span> no seu <span class="font-bold">tempo</span>.

@@ -1,8 +1,17 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 @theme {
   --color-black: #1c1c1c;
   --color-gold: #d4af37;
   --color-red: #8b2e2e;
   --color-gray: #F8F8F8;
+  /* --font-inter: "Inter", sans-serif;  */
+}
+
+@layer base {
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 }
