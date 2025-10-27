@@ -18,8 +18,9 @@
         </div>
         <div class="flex justify-between">
           <span>Serviço:</span>
-          <span class="font-semibold">{{ agendamento.services.join(" + ") }}</span>
-          
+          <span class="font-semibold">{{
+            agendamento.services.join(" + ")
+          }}</span>
         </div>
         <div class="flex justify-between">
           <span>Total:</span>
@@ -27,8 +28,18 @@
         </div>
 
         <div class="flex justify-end gap-2 mt-2">
-          <button @click="editAgendamento(index)" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Editar</button>
-          <button @click="cancelAgendamento(index)" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Cancelar</button>
+          <button
+            @click="editAgendamento(index)"
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          >
+            Editar
+          </button>
+          <button
+            @click="cancelAgendamento(index)"
+            class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+          >
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
@@ -38,6 +49,19 @@
 <script setup lang="ts">
 import HomeInfo from "../components/HomeInfo.vue";
 import { useMeusAgendamentosStore } from "../stores/useMeusAgendamentosStore";
+
+import api from "../api";
+import { onMounted } from "vue";
+
+onMounted(async () => {
+  try {
+    const res = await api.get("/clientes/agendamentos");
+    console.log(res.data.msg);
+  } catch (err: any) {
+    console.error(err);
+    console.log(err.response?.data?.error || "Erro ao carregar agendamentos");
+  }
+});
 
 const store = useMeusAgendamentosStore();
 
@@ -50,7 +74,9 @@ function formatDate(d: string) {
 }
 
 function editAgendamento(index: number) {
-  alert(`Editar agendamento ${index + 1} (lógica de edição em desenvolvimento)`);
+  alert(
+    `Editar agendamento ${index + 1} (lógica de edição em desenvolvimento)`
+  );
 }
 
 function cancelAgendamento(index: number) {

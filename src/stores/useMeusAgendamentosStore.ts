@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { ref } from "vue";
 
 export interface Agendamento {
   date: string;
@@ -6,8 +7,6 @@ export interface Agendamento {
   services: string[];
   total: number;
 }
-
-import { ref } from "vue";
 
 export const useMeusAgendamentosStore = defineStore("meusAgendamentos", () => {
   const agendamentos = ref<Agendamento[]>([]);

@@ -1,17 +1,23 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "localhost:3333/", //usar dotenv
-  timeout: 5000,
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
-// Interceptadores opcionais
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error("API error:", error.response?.data || error.message);
-    return Promise.reject(error);
+let accessToken: string = "";
+
+export function setAccessToken(token: string) {
+  localStorage.setItem("accessToken", token); // salva para persistência
+  accessToken = token;
+}
+
+api.interceptors.request.use((config) => {
+  const token = accessToken || localStorage.getItem("accessToken"); // pega da memória ou storage
+  if (token) {
+    config.headers = config.headers || {};
+    config.headers["Authorization"] = `Bearer ${token}`;
   }
-);
+  return config;
+});
 
 export default api;

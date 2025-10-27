@@ -6,10 +6,7 @@
     />
 
     <div class="flex flex-col items-center">
-      <PrimaryButton 
-        name="Agendar"
-        :method="iniciarAgendamento"
-      />
+      <PrimaryButton name="Agendar" :method="iniciarAgendamento" />
 
       <div class="flex items-center w-full max-w-[100px]">
         <div class="flex-grow border-t border-gold"></div>
@@ -37,10 +34,10 @@ import PrimaryButton from "../components/PrimaryButton.vue";
 const router = useRouter();
 
 function iniciarAgendamento() {
-  router.push("/cliente");
+  router.push("/login");
 }
 
 function verAgendamentos() {
-  router.push("/meus-agendamentos");
+  router.push("/login");
 }
 </script>

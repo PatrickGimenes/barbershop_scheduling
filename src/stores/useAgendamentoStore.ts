@@ -7,6 +7,7 @@ export interface Service {
   price: number;
 }
 
+
 export const useAgendamentoStore = defineStore("agendamento", () => {
   const selectedDate = ref("");      // data selecionada
   const selectedTime = ref("");      // horário selecionado

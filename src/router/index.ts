@@ -1,16 +1,19 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import HomeView from "../views/HomeView.vue";
-import EtapaCliente from "../views/EtapaCliente.vue";
+
 import EtapaServico from "../views/EtapaServico.vue";
 import EtapaAgenda from "../views/EtapaAgenda.vue";
 import EtapaConfirmacao from "../views/EtapaConfirmacao.vue";
 import Sucess from "../views/Sucess.vue";
 import MeusAgendamentos from "../views/MeusAgendamentos.vue";
+import LoginView from "../views/LoginView.vue";
+import CadastroView from "../views/CadastroView.vue";
 
 const routes = [
   { path: "/", component: HomeView },
-  { path: "/cliente", component: EtapaCliente },
+  { path: "/login", component: LoginView },
+  { path: "/cadastro", component: CadastroView },
   { path: "/servico", component: EtapaServico },
   { path: "/agendamento", component: EtapaAgenda },
   { path: "/confirmacao", component: EtapaConfirmacao },
