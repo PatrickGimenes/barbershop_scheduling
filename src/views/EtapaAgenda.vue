@@ -1,14 +1,13 @@
 <template>
-  <div class="w-[80vw] mx-auto">
+  <div class="min-h-screen flex flex-col bg-gray px-4 py-8">
     <HomeInfo
       title="Escolha a data e horário"
       subtitle="Selecione o dia e horário que deseja ser atendido."
     />
 
-    <div class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-md space-y-6">
-      <p class="font-semibold text-xl text-center py-4">
-        Etapa <span class="font-bold">3</span> de
-        <span class="font-bold">4</span>
+    <div class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-lg space-y-6">
+      <p class="text-center font-semibold text-xl">
+        Etapa <span class="font-bold">3</span> de <span class="font-bold">4</span>
       </p>
 
       <!-- Dias disponíveis -->
@@ -20,10 +19,10 @@
             :key="day"
             @click="selectDate(day)"
             :class="[
-              'px-4 py-2 rounded-lg border min-w-[80px] text-center whitespace-nowrap',
+              'px-4 py-2 rounded-lg border min-w-[80px] text-center whitespace-nowrap transition-transform transform hover:scale-105',
               selectedDate === day
-                ? 'bg-gold text-white border-gold'
-                : 'bg-gray-100 border-gray-300 hover:bg-gray-200',
+                ? 'bg-gold text-white border-gold shadow-lg'
+                : 'bg-gray-100 border-gray-300 hover:bg-gray-200'
             ]"
           >
             {{ formatDay(day) }}
@@ -40,10 +39,10 @@
             :key="time"
             @click="selectTime(time)"
             :class="[
-              'px-4 py-2 rounded-lg border',
+              'px-4 py-2 rounded-lg border transition-transform transform hover:scale-105',
               selectedTime === time
-                ? 'bg-gold text-white border-gold'
-                : 'bg-gray-100 border-gray-300 hover:bg-gray-200',
+                ? 'bg-gold text-white border-gold shadow-lg'
+                : 'bg-gray-100 border-gray-300 hover:bg-gray-200'
             ]"
           >
             {{ time }}
@@ -52,22 +51,22 @@
       </div>
 
       <!-- Próxima etapa -->
-
-      <button
-        @click="nextStep"
+      <PrimaryButton
+        name="Próxima etapa"
+        :method="nextStep"
         :disabled="!selectedDate || !selectedTime"
-        class="bg-gold text-2xl font-bold rounded-sm h-14 w-full disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        Próxima etapa
-      </button>
+        textColor="text-white"
+        class="w-full mt-4"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import HomeInfo from "../components/HomeInfo.vue";
+import PrimaryButton from "../components/PrimaryButton.vue";
 import { useAgendamentoStore } from "../stores/useAgendamentoStore.ts";
 
 const router = useRouter();
@@ -101,13 +100,17 @@ function formatDay(day: string) {
   const date = new Date(day);
   return `${date.getDate()}/${date.getMonth() + 1}`;
 }
+
 // Salvar dados e ir para confirmação
 function nextStep() {
   if (!selectedDate.value || !selectedTime.value) return;
-
-  // Salvar na store
   store.setDateTime(selectedDate.value, selectedTime.value);
-
   router.push("/confirmacao");
 }
 </script>
+
+<style scoped>
+button:hover {
+  transition: transform 0.2s ease-in-out;
+}
+</style>

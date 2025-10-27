@@ -2,17 +2,24 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export interface Service {
+  icon?: string | undefined;
   id: number;
   name: string;
   price: number;
 }
 
+export interface Agendamento {
+  date: string | undefined;
+  time: string;
+  services: Service[];
+  total: number;
+}
 
 export const useAgendamentoStore = defineStore("agendamento", () => {
-  const selectedDate = ref("");      // data selecionada
-  const selectedTime = ref("");      // horário selecionado
-  const selectedServices = ref<Service[]>([]);   // agora é um array de serviços
-  const total = ref(0);              // valor total
+  const selectedDate = ref(""); // data selecionada
+  const selectedTime = ref(""); // horário selecionado
+  const selectedServices = ref<Service[]>([]); // agora é um array de serviços
+  const total = ref(0); // valor total
 
   // Atualiza data e hora
   function setDateTime(date: string, time: string) {

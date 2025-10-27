@@ -6,6 +6,7 @@
         src="../assets/hero_image.jpg"
         alt="Barbearia Barrado Jr"
         class="absolute inset-0 w-full h-full object-cover opacity-30"
+        loading="lazy"
       />
       <div class="relative z-10 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -48,6 +49,7 @@
             src="../assets/corte.jpg"
             alt="Corte de cabelo"
             class="w-full h-48 object-cover rounded-t-lg mb-4"
+            loading="lazy"
           />
           <h3 class="text-xl font-semibold mb-2">Corte de Cabelo</h3>
           <p class="text-lg">
@@ -59,6 +61,7 @@
             src="../assets/barba.jpg"
             alt="Barba"
             class="w-full h-48 object-cover rounded-t-lg mb-4"
+            loading="lazy"
           />
           <h3 class="text-xl font-semibold mb-2">Barba</h3>
           <p class="text-lg">Aparos e modelagens para um visual impecável.</p>
@@ -68,6 +71,7 @@
             src="../assets/sobrancelha.jpg"
             alt="Sobrancelha"
             class="w-full h-48 object-cover rounded-t-lg mb-4"
+            loading="lazy"
           />
           <h3 class="text-xl font-semibold mb-2">Sobrancelha</h3>
           <p class="text-lg">
