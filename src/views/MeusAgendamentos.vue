@@ -113,10 +113,12 @@ function formatDate(d: string) {
 
 function editAgendamento(index: number) {
   // selectedAgendamento.value = { ...store.agendamentos[index] };
+  console.log(index);
   showModal.value = true;
 }
 
 function updateAgendamento(updated: any) {
+  console.log(updated);
   // const index = store.agendamentos.findIndex(
   //   (a) =>
   //     a.date === selectedAgendamento.value.date &&
